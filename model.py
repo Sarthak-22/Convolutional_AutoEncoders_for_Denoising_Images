@@ -21,13 +21,10 @@ class Conv_AE(nn.Module):
 
         # Latent space
         x = self.pool(x)
-        print(x.shape)
-
+    
         # Decoder
         x = F.relu(self.deconv1(x))
-        print(x.shape)
         x = F.relu(self.deconv2(x))
-        print(x.shape)
         x = torch.sigmoid(self.conv3(x))
 
         return x
@@ -41,5 +38,5 @@ def test():
 
 
 
-test()
+#test()
 
