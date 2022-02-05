@@ -27,7 +27,7 @@ class NoisyDataset(Dataset):
             pre_processing = self.transform
             image, label = pre_processing(image), pre_processing(label)
 
-            return (image,label)
+        return (image,label)
 
 
 
@@ -45,5 +45,4 @@ print(test_image.max(), test_image.min())
 plt.figure()
 plt.imshow((test_image*255).numpy().transpose(1,2,0).astype(np.uint16))
 plt.show()
-#plt.imshow(test_label.permute(1,2,0))
 
