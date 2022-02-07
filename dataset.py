@@ -5,15 +5,15 @@ from PIL import Image
 import numpy as np
 import os
 
-
-processing = transforms.Compose([
+transform = transforms.Compose([
                 transforms.ToPILImage(),
                 transforms.Resize((420,540)),
                 transforms.ToTensor(),
             ])
 
+
 class NoisyDataset(Dataset):
-    def __init__(self, image_dir, label_dir, transform=processing):
+    def __init__(self, image_dir, label_dir, transform=transform):
         self.image_dir = image_dir
         self.label_dir = label_dir
         self.transform = transform
@@ -27,9 +27,7 @@ class NoisyDataset(Dataset):
         label_path = os.path.join(self.label_dir, self.images[index])
         image = np.array(Image.open(img_path), dtype=np.float32)/255.0
         label = np.array(Image.open(label_path), dtype=np.float32)/255.0
-        # image = io.imread(img_path)/255.0
-        # label = io.imread(label_path)/255.0
-        
+
         if self.transform is not None:
             pre_processing = self.transform
             image, label = pre_processing(image), pre_processing(label)
@@ -40,13 +38,19 @@ class NoisyDataset(Dataset):
 
 
 def test():
-    test_dataset = NoisyDataset(image_dir='dataset/train', label_dir='dataset/train_cleaned', transform=processing)
-    test_image, test_label = test_dataset[0][0], test_dataset[0][1]         # Index = 0 
-    
+    test_dataset = NoisyDataset(image_dir='dataset/train', label_dir='dataset/train_cleaned', transform=transform)
+    test_image, test_label = test_dataset[0][0], test_dataset[0][1]         # Index = 0     
+    print(test_image.shape, test_label.shape)
 
     plt.figure()
-    plt.imshow((test_image*255).numpy().transpose(1,2,0).astype(np.uint8))
+
+    plt.imshow((test_image*255.0).numpy().transpose(1,2,0).astype(np.uint8), cmap='gray')
+    plt.show()
+    
+    plt.imshow((test_label*255.0).numpy().transpose(1,2,0).astype(np.uint8), cmap='gray')
     plt.show()
 
 
-test()
+
+
+#test()
