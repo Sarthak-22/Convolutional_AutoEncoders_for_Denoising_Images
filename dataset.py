@@ -3,7 +3,10 @@ from torchvision import transforms
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
+import torch
 import os
+
+from model import Conv_AE
 
 transform = transforms.Compose([
                 transforms.ToPILImage(),
@@ -40,8 +43,12 @@ class NoisyDataset(Dataset):
 def test():
     test_dataset = NoisyDataset(image_dir='dataset/train', label_dir='dataset/train_cleaned', transform=transform)
     test_image, test_label = test_dataset[0][0], test_dataset[0][1]         # Index = 0     
-    print(test_image.max(), test_image.min(), test_label.max(), test_label.min())
+    
+    model = Conv_AE().cuda()
+    model.load_state_dict(torch.load('model_weights.pth'))
+    out = model(test_image.cuda())
 
+    return out
 
     plt.figure()
 
@@ -54,4 +61,7 @@ def test():
 
 
 
-#test()
+# out = test()
+# plt.figure()
+# plt.imshow((out*255.0).detach().cpu().numpy()[0,:,:,:].transpose(1,2,0).astype(np.uint8), cmap='gray')
+# plt.show()

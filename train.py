@@ -11,9 +11,9 @@ train_image_dir = 'dataset/train'
 train_label_dir = 'dataset/train_cleaned'
 test_image_dir  = 'dataset/test'
 device = "cuda" if torch.cuda.is_available() else "cpu"
-learning_rate = 1e-4
-batch_size = 8
-epochs = 1
+learning_rate = 1e-3
+batch_size = 16
+epochs = 64
 
 # Load Data
 train_dataset = NoisyDataset(image_dir=train_image_dir, label_dir=train_label_dir)
@@ -25,7 +25,7 @@ model = Conv_AE().to(device=device)
 
 
 # Loss and optimizers
-criterion = nn.BCEWithLogitsLoss()                            # Cross-Entropy loss
+criterion = nn.MSELoss()                            # Cross-Entropy loss
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
 
@@ -45,3 +45,7 @@ for epoch in range(epochs):
         
         # gradient descent
         optimizer.step()
+
+        print(f'Epochs:{epoch+1}, Loss:{loss}')
+
+torch.save(model.state_dict(), 'model_weights.pth')
