@@ -40,7 +40,8 @@ class NoisyDataset(Dataset):
 def test():
     test_dataset = NoisyDataset(image_dir='dataset/train', label_dir='dataset/train_cleaned', transform=transform)
     test_image, test_label = test_dataset[0][0], test_dataset[0][1]         # Index = 0     
-    print(test_image.shape, test_label.shape)
+    print(test_image.max(), test_image.min(), test_label.max(), test_label.min())
+
 
     plt.figure()
 
