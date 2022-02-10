@@ -44,24 +44,17 @@ def test():
     test_dataset = NoisyDataset(image_dir='dataset/train', label_dir='dataset/train_cleaned', transform=transform)
     test_image, test_label = test_dataset[0][0], test_dataset[0][1]         # Index = 0     
     
-    model = Conv_AE().cuda()
-    model.load_state_dict(torch.load('model_weights.pth'))
-    out = model(test_image.cuda())
 
-    return out
+    fig, (ax1, ax2) = plt.subplots(1,2)
 
-    plt.figure()
-
-    plt.imshow((test_image*255.0).numpy().transpose(1,2,0).astype(np.uint8), cmap='gray')
-    plt.show()
+    ax1.set_title("Test Input Image")
+    ax1.imshow((test_image*255.0).numpy()[0,:,:].astype(np.uint8), cmap='gray')
     
-    plt.imshow((test_label*255.0).numpy().transpose(1,2,0).astype(np.uint8), cmap='gray')
+    ax2.set_title("Test Ground Truth Image")
+    ax2.imshow((test_label*255.0).numpy()[0,:,:].astype(np.uint8), cmap='gray')
     plt.show()
 
 
 
 
-# out = test()
-# plt.figure()
-# plt.imshow((out*255.0).detach().cpu().numpy()[0,:,:,:].transpose(1,2,0).astype(np.uint8), cmap='gray')
-# plt.show()
+#test()
