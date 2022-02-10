@@ -3,10 +3,8 @@ from torchvision import transforms
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
-import torch
 import os
 
-from model import Conv_AE
 
 transform = transforms.Compose([
                 transforms.ToPILImage(),
