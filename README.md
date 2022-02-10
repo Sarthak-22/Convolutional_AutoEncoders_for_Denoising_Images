@@ -1,4 +1,4 @@
-# Convolutional-AutoEncoders-for-Denoising-Images
+# Convolutional AutoEncoders for Denoising Images
 
 ## Architecture 
 * The architecture for **Convolutional AutoEncoder** is implemented in **PyTorch**. 
