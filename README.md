@@ -47,7 +47,7 @@
 
 `../dataset/test`
 
-### Training,
+### Training
 * Run
 `python train.py`
 
