@@ -15,7 +15,7 @@ test_image_dir  = 'dataset/test'
 device = "cuda" if torch.cuda.is_available() else "cpu"
 learning_rate = 1e-3
 batch_size = 16
-epochs = 64
+epochs = 100
 
 # Load Data
 train_dataset = NoisyDataset(image_dir=train_image_dir, label_dir=train_label_dir)
