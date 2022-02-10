@@ -27,7 +27,7 @@ model = Conv_AE().to(device=device)
 
 
 # Loss and optimizers
-criterion = nn.MSELoss()                            # Cross-Entropy loss
+criterion = nn.MSELoss()   # Mean Squared loss
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
 

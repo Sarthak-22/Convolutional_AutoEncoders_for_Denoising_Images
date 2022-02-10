@@ -14,31 +14,48 @@
 `train_cleaned`
 `test`
 * The _train_ and _train_cleaned_ folders contain the input and ground truth denoised image. Test images (without GT) are present in _test_ folder
-Example _train_ and _train_cleaned_ images - 
-
-### Train Noisy Input  
-![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_noisy.png) 
-
-### Train Denoised GT
-![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_denoised_GT.png)
 
 ## Training Details
-* The model was trained for __64 epochs__ with a __batch size of 16__ and __Learning rate = 0.001__
+* The model was trained for __100 epochs__ with a __batch size of 16__ and __Learning rate = 0.001__
 * __Mean Squared Error (MSE) loss__ was used as a loss metric.
 * Training Progress - 
 ![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/training_loss.svg)
 
 ## Results
-* Inference done on training data - 
+* Examples of reconstructed images from training data is present in [`images`](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/tree/main/images)
+* Inference done on (unseen) test data - 
 
-### Train Noisy Input
-![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_noisy.png)
+### Noisy Input
+![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/test_images/1.png)
 
 ### Reconstructed Denoised Image
-![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_reconstructed_denoised.png)
+![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/test_result_1.png)
 
-### Train Denoised GT
-![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_denoised_GT.png)
+
+
+## Evaluation
+* Clone the Github repo -
+`git clone https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images.git`
+
+* Download the dataset and create the folders accordingly - 
+`../dataset/train`
+`../dataset/train_cleaned`
+`../dataset/test`
+
+### Training,
+* Run
+`python train.py`
+
+### Inference (with pre-trained weights) - 
+* Ensure that _model_weights.pth_ is present in the current folder. 
+* Run the evaluation script (on a single image) - 
+`python eval.py IMAGE_PATH MODEL_WEIGHTS_PATH --save`
+* To save the output, enter `--save True`. Example - 
+`python eval.py test_images/1.png model_weights.pth --save True`
+
+
+
+
 
 
 
