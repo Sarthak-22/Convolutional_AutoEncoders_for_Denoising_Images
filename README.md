@@ -26,10 +26,19 @@ Example _train_ and _train_cleaned_ images -
 * The model was trained for __64 epochs__ with a __batch size of 16__ and __Learning rate = 0.001__
 * __Mean Squared Error (MSE) loss__ was used as a loss metric.
 * Training Progress - 
-| Epoch | Loss |
-| ----- | ---- |
-| 0 |  | 
-| 1 |  |
+![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/training_loss.svg)
+
+## Results
+* Inference done on training data - 
+
+### Train Noisy Input
+![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_noisy.png)
+
+### Reconstructed Denoised Image
+![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_reconstructed_denoised.png)
+
+### Train Denoised GT
+![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_denoised_GT.png)
 
 
 
