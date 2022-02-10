@@ -17,6 +17,6 @@
 * The _train_ and _train_cleaned_ folders contain the input and ground truth denoised image. Test images (without GT) are present in _test_ folder
 * Example _train_ and _train_cleaned_ images - 
 Train Noisy Input | Train denoised GT
-------------------|------------------
-![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_noisy.png)        | ![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_denoised_GT.png) 
+----------------- | -----------------
+![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_noisy.png) | ![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/train_denoised_GT.png) 
 
