@@ -22,7 +22,7 @@
 ![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/training_loss.svg)
 
 ## Results
-* Examples of reconstructed images from training data is present in [`images`](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/tree/main/images)
+* Examples of reconstructed images from training data is present in [*images*](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/tree/main/images)
 * Inference done on (unseen) test data - 
 
 ### Noisy Input
@@ -41,12 +41,13 @@
 * Download the dataset and create the folders accordingly - 
 
 `../dataset/train`
+
 `../dataset/train_cleaned`
+
 `../dataset/test`
 
 ### Training,
 * Run
-
 `python train.py`
 
 ### Inference (with pre-trained weights) - 
