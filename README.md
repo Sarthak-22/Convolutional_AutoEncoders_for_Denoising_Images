@@ -18,7 +18,8 @@
 ## Training Details
 * The model was trained for __100 epochs__ with a __batch size of 16__ and __Learning rate = 0.001__
 * __Mean Squared Error (MSE) loss__ was used as a loss metric.
-* Training Progress - 
+### Training Progress - 
+
 ![image](https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images/blob/main/images/training_loss.svg)
 
 ## Results
