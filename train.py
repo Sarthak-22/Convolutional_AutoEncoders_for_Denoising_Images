@@ -1,9 +1,11 @@
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader, dataset
+from torch.utils.data import DataLoader
 import torch.optim as optim
 from dataset import NoisyDataset
 from model import Conv_AE
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 # Hyperparameters
@@ -49,3 +51,26 @@ for epoch in range(epochs):
         print(f'Epochs:{epoch+1}, Loss:{loss}')
 
 torch.save(model.state_dict(), 'model_weights.pth')
+
+
+def show_train_results(index):
+    image, label = train_dataset[index][0], train_dataset[index][1]
+    model = Conv_AE().to(device)
+    model.load_state_dict(torch.load("model_weights.pth"))
+
+    out = model(image.unsqueeze(0).to(device))
+
+    fig, (ax1, ax2, ax3) = plt.subplots(1,3)
+
+    ax1.set_title("Train Input Image")
+    ax1.imshow((image*255.0).numpy()[0,:,:].astype(np.uint8), cmap='gray')
+
+    ax2.set_title("Train Reconstructed Image")
+    ax2.imshow((out*255.0).detach().cpu().numpy()[0,0,:,:].astype(np.uint8), cmap='gray')
+    
+    ax3.set_title("Train Ground Truth Image")
+    ax3.imshow((label*255.0).numpy()[0,:,:].astype(np.uint8), cmap='gray')
+    plt.show()
+
+
+#show_train_results(5)

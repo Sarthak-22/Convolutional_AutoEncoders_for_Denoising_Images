@@ -9,14 +9,14 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("IMAGE_PATH", help="Enter the input image path", type=str)
 parser.add_argument("MODEL_WEIGHTS", help="Enter the trained model weights path", type=str)
+parser.add_argument("--save_image", help="Enable this to save image", type=bool)
 args = parser.parse_args()
 
 
-
+save_img = args.save_image
 PATH = args.IMAGE_PATH
 model_weights = args.MODEL_WEIGHTS
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-device = 'cpu'
   
 
 # Pre-processing the input image  
@@ -51,6 +51,10 @@ def evaluate(img):
 
     ax2.set_title('Denoised Image')
     ax2.imshow((denoised*255.0).detach().cpu().numpy()[0,0,:,:].astype(np.uint8), cmap='gray')
+
+    if save_img==True:
+        plt.imsave("test_result.png",(denoised*255.0).detach().cpu().numpy()[0,0,:,:].astype(np.uint8), cmap='gray')
+
     plt.show()
 
 
