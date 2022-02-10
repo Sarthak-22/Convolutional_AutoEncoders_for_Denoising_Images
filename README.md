@@ -8,11 +8,11 @@
 
 
 ## Dataset
-* The dataset can be downloaded from (here)[https://www.kaggle.com/c/denoising-dirty-documents/data]
+* The dataset can be downloaded from [here](https://www.kaggle.com/c/denoising-dirty-documents/data)
 
 * The dataset has 3 folders - 
 `train`
 `train_cleaned`
 `test`
-* The __train__ and __train_cleaned__ folders contain the input and ground truth denoised image. Test images (without GT) are present in __test__ folder
+* The _train_ and _train_cleaned_ folders contain the input and ground truth denoised image. Test images (without GT) are present in _test_ folder
 
