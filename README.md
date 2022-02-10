@@ -35,22 +35,27 @@
 
 ## Evaluation
 * Clone the Github repo -
+
 `git clone https://github.com/Sarthak-22/Convolutional_AutoEncoders_for_Denoising_Images.git`
 
 * Download the dataset and create the folders accordingly - 
+
 `../dataset/train`
 `../dataset/train_cleaned`
 `../dataset/test`
 
 ### Training,
 * Run
+
 `python train.py`
 
 ### Inference (with pre-trained weights) - 
 * Ensure that _model_weights.pth_ is present in the current folder. 
 * Run the evaluation script (on a single image) - 
+
 `python eval.py IMAGE_PATH MODEL_WEIGHTS_PATH --save`
 * To save the output, enter `--save True`. Example - 
+
 `python eval.py test_images/1.png model_weights.pth --save True`
 
 
